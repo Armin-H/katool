@@ -1,7 +1,8 @@
 #!/bin/bash
 sudo apt install unzip &> /dev/null
-read -p "enter kaggle api-key:"		key
-read -p "enter dataset's name:"		dsname 
+echo $1
+key=$1
+dsname=$2
 mkdir -p ~/.kaggle
 echo "{\"username\":\"arminhejazian\",\"key\":\"$key\"}"  > ~/.kaggle/kaggle.json
 cd ~
