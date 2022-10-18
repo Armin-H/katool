@@ -1,10 +1,13 @@
 #!/bin/bash
 sudo apt install unzip &> /dev/null
-echo $1
+read -p "enter kaggle api-key:"		key
+read -p "enter dataset's name:"		dsname 
+mkdir -p ~/.kaggle
+echo "{\"username\":\"arminhejazian\",\"key\":\"$key\"}"  > ~/.kaggle/kaggle.json
 cd ~
-mkdir $1
-cd $1
-mkdir data
+mkdir -p $dsname 
+cd $dsname
+mkdir -p data
 cd data
-kaggle competitions download -c $1
-unzip -q $1.zip
+kaggle competitions download -c $dsname
+unzip -q $dsname.zip
